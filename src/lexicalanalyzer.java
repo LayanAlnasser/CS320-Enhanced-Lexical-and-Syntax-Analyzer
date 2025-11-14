@@ -64,3 +64,4 @@ public class lexicalanalyzer{
         System.out.printf("[Line %d] %-12s -> %s%n", line, type, lexeme);
     }
 }
+
