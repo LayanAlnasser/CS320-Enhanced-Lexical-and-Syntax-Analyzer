@@ -14,20 +14,19 @@ public class Lexical {
     private static final List<Symbol> symbolTable = new ArrayList<>();
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter your code (type 'end' on a new line to stop):");
+        try (Scanner input = new Scanner(System.in)) {
+            System.out.println("Enter your code (type 'end' on a new line to stop):");
 
-        int line = 1;
-        while (true) {
-            System.out.print("Line " + line + ": ");
-            String text = input.nextLine();
-            if (text.equalsIgnoreCase("end")) break;
+            int line = 1;
+            while (true) {
+                System.out.print("Line " + line + ": ");
+                String text = input.nextLine();
+                if (text.equalsIgnoreCase("end")) break;
 
-            analyzeLine(text, line);
-            line++;
+                analyzeLine(text, line);
+                line++;
+            }
         }
-
-
         printSymbolTable();
     }
 

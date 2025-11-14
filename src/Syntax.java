@@ -408,32 +408,33 @@ public class Syntax {
 
     // ====== MAIN ======
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("=== Part 2: Syntax Analyzer (with error types) ===");
-        System.out.println("Enter an expression (type 'end' to quit):");
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("=== Part 2: Syntax Analyzer (with error types) ===");
+            System.out.println("Enter an expression (type 'end' to quit):");
 
-        while (true) {
-            System.out.print("> ");
-            String line = sc.nextLine();
-            if (line.equalsIgnoreCase("end")) break;
-            if (line.trim().isEmpty()) continue;
+            while (true) {
+                System.out.print("> ");
+                String line = sc.nextLine();
+                if (line.equalsIgnoreCase("end")) break;
+                if (line.trim().isEmpty()) continue;
 
-            // 1) Lexical analysis
-            Lexer lexer = new Lexer(line);
-            List<Token> tokens = lexer.tokenize();
+                // 1) Lexical analysis
+                Lexer lexer = new Lexer(line);
+                List<Token> tokens = lexer.tokenize();
 
-            // 2) Parsing
-            Parser parser = new Parser(tokens, line);
-            Node tree = parser.parse();
+                // 2) Parsing
+                Parser parser = new Parser(tokens, line);
+                Node tree = parser.parse();
 
-            // 3) Results
-            parser.printErrors();
-            if (!parser.hasErrors() && SHOW_PARSE_TREE) {
-                System.out.println("Parse Tree:");
-                printTree(tree);
+                // 3) Results
+                parser.printErrors();
+                if (!parser.hasErrors() && SHOW_PARSE_TREE) {
+                    System.out.println("Parse Tree:");
+                    printTree(tree);
+                }
+
+                System.out.println();
             }
-
-            System.out.println();
         }
     }
 }
