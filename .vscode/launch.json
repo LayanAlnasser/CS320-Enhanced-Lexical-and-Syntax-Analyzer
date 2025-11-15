@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Lexical",
+            "request": "launch",
+            "mainClass": "Lexical",
+            "projectName": "CS320-Enhanced-Lexical-and-Syntax-Analyzer_898ff6cd"
+        },
+        {
+            "type": "java",
+            "name": "Run Syntax",
+            "request": "launch",
+            "mainClass": "Syntax",
+            "shortenCommandLine": "auto",
+            "console": "integratedTerminal"
+        }
+    ]
+}
